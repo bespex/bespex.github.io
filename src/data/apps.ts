@@ -126,7 +126,7 @@ export const groups: Group[] = [
     description:
       "Double-click a file, look at it, close it. Each Qiew viewer opens in an instant, shows one kind of file really well and never changes it.",
     shared: [
-      { title: "Read-only by design", text: "A viewer never writes to the file it shows; an export goes to a file you name." },
+      { title: "Read-only by design", text: "A viewer never writes to the file it shows; an export goes to a file you name. The one exception: Marq adds or ticks comment lines when a program such as CodeDeck asks it to." },
       { title: "Follows the file", text: "When another program saves it, the view updates and keeps your place." },
       { title: "Search that finds", text: "Ctrl+F with match count in Marq, Xaq and Jayq; hits inside folded parts open up." },
       { title: "Easy on the eyes", text: "Four colour schemes, light and dark, remembered; Trisq takes its colours from the component it shows." },
@@ -208,6 +208,7 @@ export const apps: App[] = [
       { title: "Back and forward", text: "Toolbar, Alt+←/→ or the mouse buttons take you back through the documents you followed." },
       { title: "Copy the source", text: "One click puts the Markdown itself on the clipboard." },
       { title: "Export as HTML", text: "The document as you see it, in one file with its images and your colour scheme – for readers without a Markdown viewer." },
+      { title: "Comments in the margin", text: "Comments in the file (`<!-- @ai: … -->`) show up beside their block. Marq only changes them when a program like CodeDeck starts it with `--annotate`; on its own it stays read-only." },
     ],
     shots: [viewerShot("marq", "Trail-Notes.md – Marq", "Marq showing a Markdown document with headings, a numbered list, a quote and a table")],
     pkg: "marq",
