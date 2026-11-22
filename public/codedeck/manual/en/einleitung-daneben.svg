@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" font-family="Inter, system-ui, sans-serif" role="img" aria-labelledby="t">
+  <title id="t">On the left the window of the coding agent with the chat, on the right next to it CodeDeck with the project list, AI sessions, changes and trail</title>
+  <rect width="960" height="430" rx="18" fill="#1d2127"/>
+
+  <!-- Coding agent: terminal or desktop app -->
+  <g transform="translate(28 40)">
+    <rect width="330" height="350" rx="10" fill="#111418" stroke="#3a414b"/>
+    <rect width="330" height="30" rx="10" fill="#262b33"/>
+    <rect y="20" width="330" height="10" fill="#262b33"/>
+    <circle cx="18" cy="15" r="5" fill="#e66a78"/><circle cx="34" cy="15" r="5" fill="#e0b25a"/><circle cx="50" cy="15" r="5" fill="#6fbf8a"/>
+    <text x="165" y="20" fill="#aab3bf" font-size="12" text-anchor="middle">Your coding agent</text>
+    <g font-family="JetBrains Mono, monospace" font-size="12.5">
+      <text x="18" y="62" fill="#e391d0">&gt; Switch the limiter to a token bucket</text>
+      <text x="18" y="92" fill="#8fd3e0">● Read src/limit.rs</text>
+      <text x="18" y="114" fill="#8fd3e0">● Edit src/limit.rs</text>
+      <text x="18" y="136" fill="#8fd3e0">● Edit src/main.rs</text>
+      <text x="18" y="158" fill="#8fd3e0">● Running tests …</text>
+      <text x="18" y="190" fill="#e0b25a">? May I run cargo test?</text>
+      <text x="18" y="212" fill="#cfd6df">  1. Yes  2. No</text>
+      <text x="18" y="252" fill="#e391d0">&gt; Yes</text>
+      <text x="18" y="282" fill="#8fd3e0">● Done: 2 files changed</text>
+      <rect x="18" y="312" width="8" height="15" fill="#cfd6df"/>
+    </g>
+  </g>
+
+  <!-- CodeDeck -->
+  <g transform="translate(386 40)">
+    <rect width="546" height="350" rx="10" fill="#22262d" stroke="#3a414b"/>
+    <rect width="546" height="30" rx="10" fill="#2c323a"/>
+    <rect y="20" width="546" height="10" fill="#2c323a"/>
+    <text x="273" y="20" fill="#aab3bf" font-size="12" text-anchor="middle">CodeDeck</text>
+    <!-- project list -->
+    <rect x="10" y="40" width="96" height="300" rx="6" fill="#1b1f25"/>
+    <text x="20" y="60" fill="#8a94a1" font-size="10" font-weight="700">PROJECTS</text>
+    <rect x="18" y="70" width="80" height="22" rx="4" fill="#2f3640"/><text x="26" y="85" fill="#e6eaef" font-size="11">orbit-api</text>
+    <text x="26" y="111" fill="#c3cad3" font-size="11">billing-ui</text>
+    <text x="26" y="133" fill="#c3cad3" font-size="11">docs</text>
+    <!-- sessions -->
+    <rect x="114" y="40" width="136" height="300" rx="6" fill="#1b1f25"/>
+    <text x="124" y="60" fill="#8a94a1" font-size="10" font-weight="700">SESSIONS</text>
+    <rect x="122" y="70" width="120" height="58" rx="6" fill="#2a2f37" stroke="#e0b25a"/>
+    <text x="132" y="90" fill="#e6eaef" font-size="11">Rate Limiter</text>
+    <text x="132" y="108" fill="#e0b25a" font-size="10.5">asks: cargo test</text>
+    <rect x="122" y="136" width="120" height="48" rx="6" fill="#2a2f37"/>
+    <text x="132" y="156" fill="#e6eaef" font-size="11">Docs</text>
+    <text x="132" y="173" fill="#6fbf8a" font-size="10.5">turn done</text>
+    <text x="124" y="292" fill="#8a94a1" font-size="10" font-weight="700">NEXT PROMPT</text>
+    <text x="124" y="312" fill="#c3cad3" font-size="10.5">2 files attached</text>
+    <!-- deck -->
+    <rect x="258" y="40" width="244" height="300" rx="6" fill="#1b1f25"/>
+    <text x="268" y="60" fill="#8a94a1" font-size="10.5">Activity</text>
+    <text x="326" y="60" fill="#e6eaef" font-size="10.5" font-weight="700">Changes</text>
+    <text x="398" y="60" fill="#8a94a1" font-size="10.5">Workbench</text>
+    <rect x="268" y="74" width="224" height="22" rx="4" fill="#2a2f37"/><text x="276" y="89" fill="#e6eaef" font-size="10.5" font-family="JetBrains Mono, monospace">src/limit.rs   +40 −12</text>
+    <rect x="268" y="104" width="224" height="16" fill="#203a2a"/><rect x="268" y="124" width="224" height="16" fill="#203a2a"/>
+    <rect x="268" y="144" width="224" height="16" fill="#41252a"/><rect x="268" y="164" width="224" height="16" fill="#203a2a"/>
+    <rect x="274" y="109" width="150" height="6" rx="3" fill="#6fbf8a" opacity=".6"/><rect x="274" y="129" width="110" height="6" rx="3" fill="#6fbf8a" opacity=".6"/>
+    <rect x="274" y="149" width="130" height="6" rx="3" fill="#e66a78" opacity=".6"/><rect x="274" y="169" width="170" height="6" rx="3" fill="#6fbf8a" opacity=".6"/>
+    <rect x="268" y="192" width="224" height="22" rx="4" fill="#2a2f37"/><text x="276" y="207" fill="#e6eaef" font-size="10.5" font-family="JetBrains Mono, monospace">src/main.rs     +3 −1</text>
+    <!-- trail -->
+    <rect x="510" y="40" width="26" height="300" rx="6" fill="#1b1f25"/>
+    <line x1="523" y1="60" x2="523" y2="320" stroke="#e0b25a" stroke-width="2"/>
+    <line x1="523" y1="200" x2="523" y2="320" stroke="#7d8692" stroke-width="2"/>
+    <circle cx="523" cy="70" r="6" fill="#1b1f25" stroke="#e0b25a" stroke-width="2"/>
+    <circle cx="523" cy="120" r="5" fill="#7f95ff"/>
+    <circle cx="523" cy="210" r="5" fill="#7d8692"/><circle cx="523" cy="260" r="5" fill="#7d8692"/><circle cx="523" cy="305" r="5" fill="#7d8692"/>
+  </g>
+
+  <text x="193" y="414" fill="#8a94a1" font-size="13" text-anchor="middle">Here you talk to the AI</text>
+  <text x="659" y="414" fill="#8a94a1" font-size="13" text-anchor="middle">Here you see what comes of it</text>
+</svg>

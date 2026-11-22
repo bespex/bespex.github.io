@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" font-family="Inter, system-ui, sans-serif" role="img" aria-labelledby="t">
+  <title id="t">The round of work as a cycle: give the task, follow the work, check the changes, sort the Workbench, prepare the next prompt, keep it safe and commit, then the next round begins</title>
+  <rect width="760" height="520" rx="18" fill="#1d2127"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#7d8692"/>
+    </marker>
+  </defs>
+  <circle cx="380" cy="262" r="170" fill="none" stroke="#3a414b" stroke-width="2" stroke-dasharray="4 6"/>
+  <text x="380" y="252" fill="#e6eaef" font-size="20" font-weight="700" text-anchor="middle">One round</text>
+  <text x="380" y="278" fill="#8a94a1" font-size="13" text-anchor="middle">from prompt to commit</text>
+
+  <!-- six stations around the circle -->
+  <g font-size="13">
+    <g transform="translate(380 92)">
+      <rect x="-92" y="-30" width="184" height="60" rx="12" fill="#2a2f37" stroke="#7f95ff"/>
+      <text y="-6" fill="#e6eaef" text-anchor="middle" font-weight="700">1 Give the task</text>
+      <text y="14" fill="#8a94a1" text-anchor="middle">Session · prompt in the chat</text>
+    </g>
+    <g transform="translate(588 177)">
+      <rect x="-92" y="-30" width="184" height="60" rx="12" fill="#2a2f37" stroke="#7f95ff"/>
+      <text y="-6" fill="#e6eaef" text-anchor="middle" font-weight="700">2 Follow the work</text>
+      <text y="14" fill="#8a94a1" text-anchor="middle">Activity · Needs you</text>
+    </g>
+    <g transform="translate(588 347)">
+      <rect x="-92" y="-30" width="184" height="60" rx="12" fill="#2a2f37" stroke="#e0b25a"/>
+      <text y="-6" fill="#e6eaef" text-anchor="middle" font-weight="700">3 Check the changes</text>
+      <text y="14" fill="#8a94a1" text-anchor="middle">Changes · comments</text>
+    </g>
+    <g transform="translate(380 432)">
+      <rect x="-92" y="-30" width="184" height="60" rx="12" fill="#2a2f37" stroke="#e0b25a"/>
+      <text y="-6" fill="#e6eaef" text-anchor="middle" font-weight="700">4 Sort the Workbench</text>
+      <text y="14" fill="#8a94a1" text-anchor="middle">Scratch · @ai hints</text>
+    </g>
+    <g transform="translate(172 347)">
+      <rect x="-92" y="-30" width="184" height="60" rx="12" fill="#2a2f37" stroke="#e391d0"/>
+      <text y="-6" fill="#e6eaef" text-anchor="middle" font-weight="700">5 Prepare the prompt</text>
+      <text y="14" fill="#8a94a1" text-anchor="middle">Attach · paperclip</text>
+    </g>
+    <g transform="translate(172 177)">
+      <rect x="-92" y="-30" width="184" height="60" rx="12" fill="#2a2f37" stroke="#6fbf8a"/>
+      <text y="-6" fill="#e6eaef" text-anchor="middle" font-weight="700">6 Keep it safe</text>
+      <text y="14" fill="#8a94a1" text-anchor="middle">Trail · commit · push</text>
+    </g>
+  </g>
+  <!-- arrows along the circle, clockwise -->
+  <g fill="none" stroke="#7d8692" stroke-width="2" marker-end="url(#a)">
+    <path d="M475 105 Q530 120 560 142"/>
+    <path d="M600 210 L600 312"/>
+    <path d="M560 382 Q530 410 476 422"/>
+    <path d="M284 422 Q230 410 200 382"/>
+    <path d="M160 312 L160 210"/>
+    <path d="M200 142 Q230 120 285 105"/>
+  </g>
+</svg>

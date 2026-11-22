@@ -5,7 +5,9 @@
 //   part     0 start, 1 introduction, 2 tutorial, 3 reference, 4 appendix
 //   order    place within its part      purpose  what the page is for, shown below the heading
 //   draft    true while the page is a plan: not indexed, marked as a draft
-// The navigation is built from all pages of the same language.
+//   translation  on an English page: the German page it translates, e.g. /codedeck/manual/de/tutorial/
+// The navigation is built from all pages of the same language; the link to the other language comes
+// from `translation` (on a German page: the English page that names it).
 import Base from "./Base.astro";
 import { apps } from "../data/apps";
 
@@ -17,22 +19,31 @@ interface Frontmatter {
   purpose?: string;
   draft?: boolean;
   description?: string;
+  translation?: string;
 }
 const { frontmatter } = Astro.props as { frontmatter: Frontmatter };
 const lang = Astro.url.pathname.split("/")[3] ?? "de";
 const words = {
-  de: { manual: "Handbuch", parts: ["Start", "Einleitung", "Tutorial", "Nachschlagen", "Anhang"], purpose: "Zweck", draft: "Entwurf: Diese Seite ist ein Bauplan. Die Kästen „Arbeitsanweisung“ sagen, was hier entstehen soll; sie verschwinden, sobald der Inhalt steht.", back: "Zurück", next: "Weiter", app: "Zu CodeDeck" },
-  en: { manual: "Manual", parts: ["Start", "Introduction", "Tutorial", "Reference", "Appendix"], purpose: "Purpose", draft: "Draft: this page is a plan. The boxes “Instructions” say what is to be written here; they go once the content stands.", back: "Back", next: "Next", app: "To CodeDeck" },
+  de: { manual: "Handbuch", parts: ["Start", "Einleitung", "Tutorial", "Nachschlagen", "Anhang"], purpose: "Zweck", draft: "Entwurf: Diese Seite ist ein Bauplan. Die Kästen „Arbeitsanweisung“ sagen, was hier entstehen soll; sie verschwinden, sobald der Inhalt steht.", back: "Zurück", next: "Weiter", app: "Zu CodeDeck", other: "English", otherLang: "en" },
+  en: { manual: "Manual", parts: ["Start", "Introduction", "Tutorial", "Reference", "Appendix"], purpose: "Purpose", draft: "Draft: this page is a plan. The boxes “Instructions” say what is to be written here; they go once the content stands.", back: "Back", next: "Next", app: "To CodeDeck", other: "Deutsch", otherLang: "de" },
 }[lang === "en" ? "en" : "de"];
 
 type Page = { url: string; frontmatter: Frontmatter };
-const all = Object.values(import.meta.glob<Page>("../pages/codedeck/manual/**/*.md", { eager: true }))
+const every = Object.values(import.meta.glob<Page>("../pages/codedeck/manual/**/*.md", { eager: true }));
+const all = every
   .filter((p) => p.url?.startsWith(`/codedeck/manual/${lang}/`))
   .sort((a, b) => a.frontmatter.part - b.frontmatter.part || a.frontmatter.order - b.frontmatter.order);
 const here = all.findIndex((p) => p.url.replace(/\/$/, "") === Astro.url.pathname.replace(/\/$/, ""));
 const previous = here > 0 ? all[here - 1] : null;
 const next = here >= 0 && here < all.length - 1 ? all[here + 1] : null;
 const parts = words.parts.map((name, i) => ({ name, pages: all.filter((p) => p.frontmatter.part === i) })).filter((p) => p.pages.length);
+// The same page in the other language, else the other manual's start
+const slash = (u: string) => u.replace(/\/?$/, "/");
+const other =
+  lang === "en"
+    ? frontmatter.translation
+    : every.find((p) => p.frontmatter.translation && slash(p.frontmatter.translation) === slash(Astro.url.pathname))?.url;
+const otherUrl = slash(other ?? `/codedeck/manual/${words.otherLang}/`);
 const accent = apps.find((a) => a.slug === "codedeck")?.accent;
 // Until the manual is linked from the site (menu entry "Handbuch"), no page of it goes into search
 // engines, finished or not; it is not in the sitemap either. Set to true at the launch.
@@ -64,6 +75,7 @@ const mark = (p: Page) =>
         </div>
       ))}
       <a class="manual-app" href="/codedeck/">{words.app}</a>
+      <a class="manual-app" href={otherUrl} hreflang={words.otherLang} lang={words.otherLang}>{words.other}</a>
     </nav>
     <article class="manual-page">
       {frontmatter.draft && <p class="note wip">{words.draft}</p>}
