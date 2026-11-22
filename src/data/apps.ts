@@ -98,6 +98,8 @@ export interface App {
   /** Prefix of the app's release tags, e.g. "xaq-v" (monorepo) or "v". */
   tagPrefix: string;
   appImage: boolean;
+  /** Packages the app works best with, installed in the same `apt install` line, each with what it is for. */
+  alsoInstall?: { pkg: string; why: string }[];
   /** Commands to run after installing the package, e.g. a setup step. */
   afterInstall?: string[];
   /** SPDX identifier, if not MIT. */
@@ -546,7 +548,14 @@ export const apps: App[] = [
     repo: "bespex/CodeDeck",
     tagPrefix: "v",
     appImage: true,
-    note: "The package brings Marq, Dirq and Jayq along, the viewers CodeDeck opens things in; each can be removed on its own. CodeDeck works with Claude Code: its welcome window connects it in one click.",
+    alsoInstall: [
+      { pkg: "git", why: "the changes, the trail and the snapshots are read from Git" },
+      { pkg: "tmux", why: "lets CodeDeck start and stop sessions; without it CodeDeck only watches the ones you start yourself" },
+      { pkg: "marq", why: "shows Markdown files and takes comments in the margin" },
+      { pkg: "dirq", why: "shows the diffs of a turn and takes line comments" },
+      { pkg: "jayq", why: "shows JSON files and queries" },
+    ],
+    note: "CodeDeck works with Claude Code: its welcome window connects it in one click. The viewers can be removed on their own.",
   },
   {
     // Successor of Image Organizr (iorg). Private until v2.0.0 is published: then remove `status`.

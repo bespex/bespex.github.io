@@ -392,3 +392,8 @@ code { font-family: var(--mono); font-size: .92em; }
   .manual { grid-template-columns: 1fr; }
   .manual-nav { position: static; max-height: none; }
 }
+
+/* What the extra packages of an install line are for */
+.also { margin: -6px 0 22px; padding: 0; list-style: none; color: var(--muted); font-size: 14.5px; }
+.also li { margin: 3px 0; }
+.also code { color: var(--fg); font-weight: 600; }

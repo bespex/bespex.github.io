@@ -172,7 +172,12 @@ const schema = {
             "sudo apt install ./be-spex-archive-keyring.deb && sudo apt update",
           ]}
         />
-        <Command lines={[`sudo apt install ${app.pkg}`, ...(app.afterInstall ?? [])]} />
+        <Command lines={[`sudo apt install ${[app.pkg, ...(app.alsoInstall ?? []).map((a) => a.pkg)].join(" ")}`, ...(app.afterInstall ?? [])]} />
+        {app.alsoInstall && (
+          <ul class="also">
+            {app.alsoInstall.map((a) => <li><code>{a.pkg}</code> {a.why}</li>)}
+          </ul>
+        )}
       </div>
       <aside>
         {app.appImage ? (
