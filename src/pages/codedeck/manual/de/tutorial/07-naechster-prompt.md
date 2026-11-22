@@ -58,6 +58,18 @@ Unten in der Sessionspalte steht immer eine **Zusammenfassung** des Reiters: fü
 
 ![Die Zusammenfassung „Nächster Prompt“ unten in der Sessionspalte: „Für: Wählen…“, „Wartet auf deinen nächsten Prompt“, „4 Dateien“ und „etwa 7.7k Tokens, wenn Claude alle Dateien liest“](/codedeck/manual/de/naechster-prompt-zusammenfassung.webp)
 
+## Prompts vorbereiten
+
+Manchmal willst du einen Prompt in Ruhe formulieren, ohne dass ihn ein versehentliches Enter abschickt. Dafür gibt es unter den Anhängen den Bereich **Vorbereitet**. Mit dem **+** legst du einen Prompt an und gibst ihm einen Namen. Ein Klick auf den Namen öffnet ihn in einem Editor direkt in der Sessionspalte, die dafür etwas höher wird. So kann er offen bleiben, während du in der Dateiliste oder im Reiter Änderungen nachsiehst und etwas hineinkopierst.
+
+Im Editor ist Enter eine neue Zeile, es wird nichts abgeschickt. Du schreibst normalen Text, Überschriften mit `##` und Aufzählungen mit `-`. CodeDeck speichert von selbst, kurz nachdem du aufgehört hast zu tippen. Ist der Prompt fertig, kopierst du ihn mit dem Kopieren-Symbol und fügst ihn im Chat der Session ein. Jeder Prompt liegt als Markdown-Datei im Scratch-Ordner des Projekts unter `.scratch/prompts/`, du kannst ihn also auch in einem eigenen Editor öffnen.
+
+<aside class="plan">
+
+**Hinweis:** Das ist der Anfang. Vorbereitete Prompts werden noch erweitert, etwa um das Starten einer neuen Session mit dem Prompt und um Anhänge, die du direkt an einen Prompt hängst. Dieser Abschnitt wird dann ausführlicher.
+
+</aside>
+
 ## Die Startregeln
 
 ![Die Startregeln: „zuletzt um 11:56 an Per-client rate limit for orders“, darunter die Erklärung und die beiden Regeln im Wortlaut](/codedeck/manual/de/naechster-prompt-startregeln.webp)

@@ -55,3 +55,11 @@ draft: true
 **Inhalt:** Zwischenablage bei Coding-Agents, die keinen Text annehmen; Link Anhang B.
 
 </aside>
+
+## Vorbereitete Prompts
+
+<aside class="plan">
+
+**Inhalt:** Bereich „Vorbereitet“ unter dem Nächsten Prompt, Dateien in `.scratch/prompts/`, Autospeichern, Kopieren. Noch offen und später zu ergänzen: Übergabe an eine Session, Anhänge an einen Prompt. Grundlagen stehen im [Tutorial, Kapitel 7](/codedeck/manual/de/tutorial/07-naechster-prompt/).
+
+</aside>
