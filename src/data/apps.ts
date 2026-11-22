@@ -62,6 +62,8 @@ export interface App {
    * the sitemap and not indexed.
    */
   status?: "preview" | "private" | "unlisted";
+  /** The one app the home page gives half of its first screen. */
+  featured?: boolean;
   /** Group the app is presented in (see `groups`), if any. */
   group?: string;
   /** Accent colour, taken from the app icon. */
@@ -514,10 +516,11 @@ export const apps: App[] = [
   {
     // One name everywhere (brand/README.md, D26): program, command and package codedeck
     slug: "codedeck",
+    featured: true,
     name: "CodeDeck",
     say: "Code Deck",
     ipa: "ˈkoʊd dɛk",
-    kind: "AI session radar",
+    kind: "AI coding deck",
     tagline: "The quiet radar beside your AI coding sessions.",
     search:
       "CodeDeck is a free desktop app for Linux that runs beside Claude Code: it shows what each AI coding session is doing and what it changed, keeps a snapshot before every turn to go back to, and attaches exactly the files, changes and comments you choose to your next prompt.",
@@ -621,7 +624,10 @@ export const appsOf = (group: string) => shown.filter((a) => a.group === group &
 /** The group's apps that work but are not released yet: shown apart. */
 export const previewsOf = (group: string) => shown.filter((a) => a.group === group && a.status === "preview");
 export const released = shown.filter((a) => a.status !== "preview");
-export const standalone = shown.filter((a) => !a.group);
+/** The app the home page leads with. */
+export const featured = shown.find((a) => a.featured)!;
+/** Apps outside the groups, except the featured one (it has the first screen to itself). */
+export const standalone = shown.filter((a) => !a.group && !a.featured);
 export const sourceUrl = (a: App) => `https://github.com/${a.repo}${a.repoPath ? `/tree/main/${a.repoPath}` : ""}`;
 /** Where the app runs; Linux unless it says otherwise. */
 export const platformsOf = (a: App): Platform[] => a.platforms ?? ["linux"];

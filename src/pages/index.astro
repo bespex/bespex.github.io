@@ -4,16 +4,13 @@ import Base from "../layouts/Base.astro";
 import AppCard from "../components/AppCard.astro";
 import Shot from "../components/Shot.astro";
 import Command from "../components/Command.astro";
-import { apps, appsOf, groups, iconOf, onWindows, previewsOf, released, shown, standalone } from "../data/apps";
+import { appsOf, featured, groups, iconOf, onWindows, previewsOf, released, shown, standalone } from "../data/apps";
 
 const packages = released.map((a) => a.pkg).join(" ");
 /** Released apps that also run on Windows: the site says "for Linux" only as long as there are none. */
 const forWindows = released.filter(onWindows);
 const alsoWindows = forWindows.length > 0 ? " – some also for Windows" : "";
 const photoSorter = shown.some((a) => a.slug === "pictorix") ? "; a photo sorter" : "";
-/** The three windows next to the headline: two viewers and the mail overview. */
-const shotOf = (slug: string) => apps.find((a) => a.slug === slug)!.shots[0];
-const stage = [shotOf("trisq"), shotOf("marq"), shotOf("maillet")];
 /** Who makes the apps and which there are, for search engines. */
 const schema = {
   "@context": "https://schema.org",
@@ -40,62 +37,86 @@ const schema = {
 };
 ---
 <Base
-  title="be spex – small, focused apps for Linux"
-  description={`be spex makes small, free desktop apps for Linux${alsoWindows}: quick viewers for React components (TSX/JSX), Markdown, JSON, XML, HTML, CSV, diffs and Mermaid diagrams; mail in your tray; work contexts with a time log; a tidy system tray${photoSorter}.`}
+  title="be spex – apps for the way you work"
+  description={`be spex makes free desktop apps for Linux${alsoWindows}: CodeDeck, which shows what your AI coding sessions do and lets you go back to any turn; quick viewers for React components (TSX/JSX), Markdown, JSON, XML, HTML, CSV, diffs and Mermaid diagrams; mail in your tray; work contexts with a time log; a tidy system tray${photoSorter}.`}
   schema={schema}
 >
   <section class="hero wrap">
-    <div class="hero-text">
-    <p class="eyebrow">Open-source apps for Linux{alsoWindows}</p>
-    <h1>Small tools that do <em>one thing</em> well.</h1>
-    <p class="lead">
-      be spex makes desktop apps for Linux{forWindows.length > 0 && ", some also for Windows,"} that open in an instant, stay out of your way and are
-      pleasant to use. Free, open source, and made for everyday work.
-    </p>
-    <p class="actions">
-      <a class="btn primary" href="#apps">Browse the apps</a>
-      <a class="btn" href="#install">Install with APT</a>
-    </p>
-    </div>
-    <div class="stage" aria-hidden="true">
-      {stage.map((shot, i) => (
-        <div class={`stage-${i + 1}`}><Shot shot={{ ...shot, alt: "" }} eager /></div>
-      ))}
-    </div>
-    <div class="dock">
-      {groups.map((g) => (
-        <div class="dock-group tinted">
-          <p class="dock-label">{g.name} · {g.kind}</p>
-          <ul aria-label={`${g.name}: ${g.kind}`}>
-            {appsOf(g.id).map((a) => (
-              <li>
-                <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
-                  <img src={iconOf(a)} alt="" width="56" height="56" />
-                  <span class="dock-text">
-                    <strong>{a.name}</strong>
-                    <small>{a.kind}<Platforms app={a} /></small>
-                  </span>
-                </a>
-              </li>
-            ))}
+    <header class="hero-head">
+      <p class="eyebrow">Open-source apps for Linux{alsoWindows}</p>
+      <h1>Apps for the <em>way you work</em>.</h1>
+    </header>
+
+    <div class="hero-halves">
+      <article class="lead-app" style={`--accent: ${featured.accent}`}>
+        <a class="lead-link" href={`/${featured.slug}/`} aria-label={`${featured.name} – ${featured.kind}`}>
+          <header>
+            <img src={iconOf(featured)} alt="" width="64" height="64" />
+            <div>
+              <h2>{featured.name}</h2>
+              <p class="kind">{featured.kind}</p>
+            </div>
+          </header>
+          <p class="lead-line">The <em>control deck</em> for your AI coding sessions.</p>
+          <p class="lead-text">
+            See what each session is doing and what it changed, go back to the state before any turn, and choose exactly
+            what goes with your next prompt. It runs beside your coding agent, not instead of it.
+          </p>
+          <Shot shot={{ ...featured.shots[0], alt: "" }} eager />
+          <ul class="points">
+            {featured.highlights.map((h) => <li>{h}</li>)}
           </ul>
-        </div>
-      ))}
-      <div class="dock-group">
-        <p class="dock-label">Desktop apps</p>
-        <ul aria-label="Desktop apps">
-          {standalone.map((a) => (
-            <li>
-              <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
-                <img src={iconOf(a)} alt="" width="56" height="56" />
-                <span class="dock-text">
-                  <strong>{a.name}</strong>
-                  <small>{a.kind}<Platforms app={a} /></small>
-                </span>
-              </a>
-            </li>
+        </a>
+        <p class="actions">
+          <a class="btn primary" href={`/${featured.slug}/`}>More about CodeDeck</a>
+          <a class="btn" href="#install">Install with APT</a>
+        </p>
+      </article>
+
+      <div class="others">
+        <p class="eyebrow">And more from be spex</p>
+        <h2>Small tools that do <em>one thing</em> well.</h2>
+        <p class="lead">
+          Desktop apps for Linux{forWindows.length > 0 && ", some also for Windows,"} that open in an instant, stay out of your way and are
+          pleasant to use. Free, open source, and made for everyday work.
+        </p>
+        <div class="dock">
+          {groups.map((g) => (
+            <div class="dock-group tinted">
+              <p class="dock-label">{g.name} · {g.kind}</p>
+              <ul aria-label={`${g.name}: ${g.kind}`}>
+                {appsOf(g.id).map((a) => (
+                  <li>
+                    <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
+                      <img src={iconOf(a)} alt="" width="56" height="56" />
+                      <span class="dock-text">
+                        <strong>{a.name}</strong>
+                        <small>{a.kind}<Platforms app={a} /></small>
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </ul>
+          <div class="dock-group">
+            <p class="dock-label">Desktop apps</p>
+            <ul aria-label="Desktop apps">
+              {standalone.map((a) => (
+                <li>
+                  <a href={`/${a.slug}/`} title={`${a.name} – ${a.kind}`}>
+                    <img src={iconOf(a)} alt="" width="56" height="56" />
+                    <span class="dock-text">
+                      <strong>{a.name}</strong>
+                      <small>{a.kind}<Platforms app={a} /></small>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p class="actions"><a class="btn" href="#apps">Browse all apps</a></p>
       </div>
     </div>
   </section>
@@ -134,7 +155,7 @@ const schema = {
     <section class="desktop wrap" id="desktop">
       <header class="section-head">
         <p class="eyebrow">Desktop apps</p>
-        <h2>Beyond the viewers <span>Apps that stay with you all day.</span></h2>
+        <h2>More for the desktop <span>Apps that stay with you all day.</span></h2>
       </header>
       <div class:list={["cards", { even: standalone.length % 3 === 1 }]}>
         {standalone.map((a) => <AppCard app={a} />)}

@@ -170,31 +170,30 @@ code { font-family: var(--mono); font-size: .92em; }
 .cmd button:hover { background: #363a42; }
 
 /* ---- Home: hero ---- */
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 11fr) minmax(0, 10fr);
-  align-items: center;
-  gap: 0 clamp(24px, 4vw, 56px);
-  padding: clamp(48px, 8vw, 96px) 0 clamp(40px, 6vw, 72px);
-}
-/* Three windows, loosely stacked: a first impression of what the apps look like. */
-.stage { position: relative; aspect-ratio: 10 / 9; }
-.stage > div { position: absolute; }
-.stage-1 { width: 78%; top: 0; right: 0; }
-.stage-2 { width: 74%; top: 30%; left: 0; }
-.stage-3 { width: 40%; bottom: 0; right: 4%; }
-.stage .titlebar { height: 26px; }
-.stage .dots i { width: 8px; height: 8px; }
-.stage .title { font-size: 11px; }
-.dock { grid-column: 1 / -1; }
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
-  .stage { margin-top: 44px; max-width: 560px; }
-}
-.hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -.035em; max-width: 14ch; }
+/* The first screen: a headline, then two halves. The left belongs to CodeDeck, the right to everything else. */
+.hero { padding: clamp(40px, 6vw, 72px) 0 clamp(40px, 6vw, 72px); }
+.hero h1 { font-size: clamp(2.5rem, 6.4vw, 4.6rem); font-weight: 800; letter-spacing: -.035em; }
 .hero h1 em { font-style: normal; color: var(--brand); }
-.hero .lead { margin-top: 22px; font-size: clamp(1.1rem, 1.6vw, 1.3rem); }
-.dock { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-top: 52px; align-items: stretch; }
+.hero-halves { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(20px, 3vw, 40px); margin-top: clamp(28px, 4vw, 48px); align-items: start; }
+@media (max-width: 900px) { .hero-halves { grid-template-columns: 1fr; } }
+.hero .lead { margin-top: 14px; font-size: 1.1rem; }
+
+.lead-app { padding: clamp(20px, 2.6vw, 30px); border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line)); border-radius: 24px; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); box-shadow: var(--shadow); }
+.lead-link { display: block; color: inherit; text-decoration: none; }
+.lead-app header { display: flex; align-items: center; gap: 16px; }
+.lead-app img { flex: none; }
+.lead-app h2 { font-size: 2.1rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+.lead-line { margin: 18px 0 8px; font-size: clamp(1.35rem, 2.4vw, 1.8rem); font-weight: 800; letter-spacing: -.02em; line-height: 1.2; color: var(--fg); }
+.lead-line em { font-style: normal; color: var(--brand); }
+.lead-text { margin: 0 0 20px; color: var(--muted); }
+.lead-app .shot .frame { box-shadow: none; }
+.lead-app .points { margin-top: 18px; font-size: 15.5px; }
+.lead-app .actions { margin: 20px 0 0; }
+
+.others h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 800; letter-spacing: -.025em; }
+.others h2 em { font-style: normal; color: var(--brand); }
+.others .actions { margin-top: 22px; }
+.dock { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-top: 28px; align-items: stretch; }
 /* The viewers belong together: one tinted tray; the other apps stand beside it. */
 .dock-group { padding: 10px 12px 12px; border-radius: 18px; border: 1px solid transparent; }
 .dock-group.tinted { background: var(--qiew-tint); border-color: var(--line); }

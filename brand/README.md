@@ -12,7 +12,7 @@ Website ausliefern soll, kopiert sie nach `public/`.
 
 ## 1 Grundgedanke
 
-**be spex macht kleine, fokussierte Programme für Linux** (einzelne auch für Windows, siehe §2). Jedes Programm tut eine Sache und tritt dann zurück. Die
+**be spex macht Programme für die Art, wie du arbeitest: für Linux** (einzelne auch für Windows, siehe §2). Leitspruch: „Apps for the way you work.“ CodeDeck ist das Hauptprogramm und führt die Startseite an (linke Hälfte der ersten Seite); alle anderen stehen gleichberechtigt daneben unter dem früheren Leitspruch „Small tools that do one thing well.“ Diese Programme tun je eine Sache und treten dann zurück. Die
 Identität soll genauso sein: wenige Regeln, überall dieselben, kein Schmuck.
 
 Drei Sätze, die alles Weitere begründen:
@@ -37,7 +37,7 @@ be spex                         die Marke (Absender)
 │   ├── Maillet   Mail          ├── HatRack   Arbeitskontexte
 │   └── PocketTray  Tray-Ordnung
 ├── Arbeitsplatz                Programme, die man neben der Arbeit offen hat
-│   └── CodeDeck  KI-Sitzungen
+│   └── CodeDeck  KI-Sitzungen (Hauptprogramm, führt die Startseite an)
 └── Fotos                       Programme für eigene Bilder
     └── Pictorix  Fotos sortieren, bewerten, einordnen (Linux und Windows)
 ```
@@ -170,7 +170,7 @@ Der Name steht nie allein, wo jemand ihn zum ersten Mal sieht. Muster:
 | App | Vollständiger Titel |
 |---|---|
 | Jayq | Jayq – JSON viewer · Qiew · be spex |
-| CodeDeck | CodeDeck – AI session radar for Linux · be spex (Motto: „Your co-deck for AI sessions“) |
+| CodeDeck | CodeDeck – AI coding deck for Linux · be spex (Motto: „Your co-deck for AI sessions“) |
 | Maillet | Maillet – Mail in your tray · be spex |
 
 „Art“ ist das Feld `kind` aus `apps.ts`, die Unterzeile in Lockups ist `tagline`. Ohne Familie entfällt der
@@ -232,7 +232,7 @@ dieselbe Seite. Subdomains je App gibt es nicht (geändert 2026-11-21): eine Dom
 | **Website, App-Seite** | Kopf-Lockup mit Schriftzug, Screenshots, Install-Zeile, Aussprache | Kopf |
 | **Social-/OG-Bild** (1200 × 630) | Schriftzug groß, `tagline`, Screenshot angeschnitten, „be spex“ unten rechts, Hintergrund Nacht mit App-Farbe als Schein | Kopf + URL |
 | **GitHub-Repo** | README: Kopf-Lockup (hell/dunkel per `<picture>`), Aussprache, ein Satz, Screenshot; Social Preview (1280 × 640) wie OG-Bild; Beschreibung = `search` gekürzt; Topics `linux`, Format | Kopf |
-| **GitHub-Organisation** | Avatar = Plakette, Beschreibung „small, focused apps for Linux“, Link `bespex.run` | Plakette |
+| **GitHub-Organisation** | Avatar = Plakette, Beschreibung „Apps for the way you work – for Linux“, Link `bespex.run` | Plakette |
 | **Dokumente** (Konzepte, PDFs, Folien) | Kopf: Zeile-Lockup der App links, „be spex“ rechts; Fußzeile: Titel · Datum · Seite; Schrift Open Sans; Orange nur für Überschriften-Akzent | Zeile + Absender |
 | **Folien** | Titelfolie mit Kopf-Lockup auf Nacht, letzte Folie mit URL-Lockup | Kopf, URL |
 | **Aufkleber / Druck** | URL-Lockup oder Icon allein | URL |
