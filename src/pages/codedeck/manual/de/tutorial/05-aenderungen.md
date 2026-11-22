@@ -24,7 +24,7 @@ Oben im Reiter wählst du, welche Änderungen angezeigt werden:
 
 ![Eine gewählte Runde im Reiter Änderungen: „Was Claude in Runde 6 getan hat“ mit „fertig 11:45“, darunter die Session, was du gefragt hast, was sie am Ende gesagt hat, die Zahlen der Änderungen und der Baum der geänderten Dateien](/codedeck/manual/de/aenderungen-runde.webp)
 
-Bei einer Runde steht oben ein **Kurzbericht**: welche Session sie ausgeführt hat, was du gefragt hast und was die Session am Ende gesagt hat. Läuft die Runde noch, steht dort **arbeitet noch**, und du siehst, was sich bisher geändert hat. Rechts daneben hängst du mit **Anhängen** die ganze Runde an deinen nächsten Prompt, öffnest sie mit **Dirq** nebeneinander in einem Diff-Programm, falls es installiert ist, oder springst mit **Vor dieser Runde…** zum Snapshot davor, von dem aus du zurückgehen kannst.
+Bei einer Runde steht oben ein **Kurzbericht**: welche Session sie ausgeführt hat, was du gefragt hast und was die Session am Ende gesagt hat. Läuft die Runde noch, steht dort **arbeitet noch**, und du siehst, was sich bisher geändert hat. Rechts daneben hängst du mit **Anhängen** die ganze Runde an deinen nächsten Prompt, öffnest sie mit **Dirq** im Diff-Programm von be spex, falls es installiert ist (siehe [Mit Dirq](#mit-dirq)), oder springst mit **Vor dieser Runde…** zum Snapshot davor, von dem aus du zurückgehen kannst.
 
 ## Den Diff lesen
 
@@ -34,13 +34,21 @@ Rechts oben wählst du zwischen zwei Ansichten. **Struktur** zeigt die geändert
 
 Neben jeder Datei steht der Kurzname der Session, die sie geschrieben hat, in ihrer Farbe. Die Zahlen rechts nennen die hinzugefügten und entfernten Zeilen.
 
+### Mit Dirq
+
+Ist **Dirq** installiert, das Diff-Programm von be spex, nimmt CodeDeck es automatisch für die Diff-Anzeige. Einstellen musst du dafür nichts. Der Reiter zeigt dann in beiden Ansichten nur noch die Dateien: Ein Klick klappt nichts mehr auf, ein **Doppelklick** öffnet den Diff dieser Datei in Dirq. Der Knopf **Dirq** oben öffnet die ganze Änderung mit allen Dateien. **Angesehen**, **Anhängen** und die übrigen Werkzeuge bleiben hier im Reiter.
+
+Dirq kann mehr als die eingebaute Ansicht, zum Beispiel alt und neu nebeneinander mit markierten geänderten Wörtern, Syntaxfarben und weitere Zeilen rund um eine Änderung. Was Dirq alles kann, steht auf [seiner Seite](/dirq/). Ist Dirq nicht installiert, zeigt CodeDeck die Diffs so, wie dieses Kapitel es beschreibt.
+
 ## Zeilen kommentieren
 
 Fällt dir an einer Zeile etwas auf, schreibst du der KI direkt dort einen **Kommentar**. Zeige in der Ansicht Code mit der Maus auf die Zeile und klicke auf die Sprechblase, die am Rand erscheint. Schreibe, was sich ändern soll, und klicke auf **An den nächsten Prompt hängen** oder drücke **Strg+Enter**.
 
 ![Ein Kommentar unter einer Zeile im Diff: „Hier bitte auch den Fall ohne Client-ID abdecken.“, darunter der Hinweis, dass er mit Datei, Zeile und Zeilentext an den nächsten Prompt gehängt wird, und die Knöpfe „Abbrechen“ und „An den nächsten Prompt hängen“](/codedeck/manual/de/aenderungen-kommentar.webp)
 
-Der Kommentar bleibt an der Zeile stehen und geht mit deinem nächsten Prompt an die Session, zusammen mit der Datei, der Zeilennummer und dem Text der Zeile. So musst du der KI nicht beschreiben, welche Stelle du meinst. Wie das Anhängen im Ganzen funktioniert, zeigt [Kapitel 7](/codedeck/manual/de/tutorial/07-naechster-prompt/).
+Der Kommentar bleibt an der Zeile stehen und geht mit deinem nächsten Prompt an die Session, zusammen mit der Datei, der Zeilennummer und dem Text der Zeile. So musst du der KI nicht beschreiben, welche Stelle du meinst.
+
+Mit Dirq kommentierst du die Zeilen in Dirq, bei den nicht committeten Änderungen, der laufenden Runde und den Änderungen seit einem Snapshot. Die Kommentare kommen genauso an deinen nächsten Prompt. Wie das Anhängen im Ganzen funktioniert, zeigt [Kapitel 7](/codedeck/manual/de/tutorial/07-naechster-prompt/).
 
 ## Dateien als angesehen markieren
 
@@ -56,13 +64,13 @@ Zeigst du mit der Maus auf eine Datei, erscheinen ihre beiden häufigsten Werkze
 
 - **Bearbeiten** öffnet die Datei in deinem Editor. Welches Programm dabei startet, sagt der Hinweis am Symbol.
 - **Anhängen** hängt die Änderung dieser einen Datei an deinen nächsten Prompt.
-- **⋯** öffnet ein Menü mit allem Weiteren: **Ansehen** zum Lesen, **Diff in Dirq** nebeneinander, falls Dirq installiert ist, **Im Baum zeigen**, das die Datei in der Dateiliste aufsucht, und **Verwerfen**. Verwerfen nimmt die Änderungen an der Datei zurück, die noch nicht committet sind. CodeDeck fragt vorher nach, denn das lässt sich nicht rückgängig machen.
+- **⋯** öffnet ein Menü mit allem Weiteren: **Ansehen** zum Lesen, **Diff in Dirq**, falls Dirq installiert ist, **Im Baum zeigen**, das die Datei in der Dateiliste aufsucht, und **Verwerfen**. Verwerfen nimmt die Änderungen an der Datei zurück, die noch nicht committet sind. CodeDeck fragt vorher nach, denn das lässt sich nicht rückgängig machen.
 
-Ein Klick auf eine Datei klappt nur ihren Diff auf und zu. Öffnen, Bearbeiten und alles andere geht bewusst nur über die Werkzeuge und das Menü, damit du nichts aus Versehen auslöst.
+Ein Klick auf eine Datei klappt nur ihren Diff auf und zu, mit Dirq tut er nichts. Öffnen, Bearbeiten und alles andere geht bewusst nur über die Werkzeuge und das Menü (mit Dirq zusätzlich der Doppelklick), damit du nichts aus Versehen auslöst.
 
 ## Probier es aus
 
-Öffne nach einer fertigen Runde den Reiter **Änderungen** über **Runde ansehen** und lies den Kurzbericht. Klicke in der Ansicht **Struktur** auf eine Datei und sieh dir ihren Diff an. Wechsle zur Ansicht **Code**, kommentiere eine Zeile und markiere danach eine Datei als **Angesehen**.
+Öffne nach einer fertigen Runde den Reiter **Änderungen** über **Runde ansehen** und lies den Kurzbericht. Klicke in der Ansicht **Struktur** auf eine Datei und sieh dir ihren Diff an. Wechsle zur Ansicht **Code**, kommentiere eine Zeile und markiere danach eine Datei als **Angesehen**. Ist Dirq installiert, öffne eine Datei mit einem Doppelklick in Dirq.
 
 ## Mehr dazu
 
