@@ -512,8 +512,7 @@ export const apps: App[] = [
     appImage: true,
   },
   {
-    // Work in progress and private (status): the page exists for review, nothing links to it yet.
-    // One name everywhere (brand/README.md, D26): command and package codedeck; codeck is an alias
+    // One name everywhere (brand/README.md, D26): program, command and package codedeck
     slug: "codedeck",
     name: "CodeDeck",
     say: "Code Deck",
@@ -524,7 +523,6 @@ export const apps: App[] = [
       "CodeDeck is a free desktop app for Linux that runs beside Claude Code: it shows what each AI coding session is doing and what it changed, keeps a snapshot before every turn to go back to, and attaches exactly the files, changes and comments you choose to your next prompt.",
     description:
       "CodeDeck runs next to your AI coding sessions, not instead of them: see what each session is doing and what it changed, go back to the state before any turn, and give it exactly what it needs with your next prompt. It is not an editor; files open in small viewers like Marq and Dirq.",
-    status: "private",
     accent: "#6366f1",
     category: "DesktopEnhancementApplication",
     labels: ["Claude Code", "Git"],
@@ -545,10 +543,7 @@ export const apps: App[] = [
     repo: "bespex/CodeDeck",
     tagPrefix: "v",
     appImage: true,
-    tryIt: {
-      text: "It works and you can run it from source: Node.js, Rust and the usual Tauri requirements. Once released, `sudo apt install codedeck` brings the program `codedeck` together with Marq, Dirq and Jayq, which it recommends.",
-      lines: ["git clone https://github.com/bespex/CodeDeck && cd CodeDeck", "./dev ~/projects/your-project"],
-    },
+    note: "The package brings Marq, Dirq and Jayq along, the viewers CodeDeck opens things in; each can be removed on its own. CodeDeck works with Claude Code: its welcome window connects it in one click.",
   },
   {
     // Successor of Image Organizr (iorg). Private until v2.0.0 is published: then remove `status`.
