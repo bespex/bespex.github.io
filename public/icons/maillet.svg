@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-  <!-- Maillet: Briefumschlag, dessen Klappe ein M bildet. Stil wie OTP Scout und HatRack. -->
-  <rect x="4" y="8" width="56" height="48" rx="8" fill="#25233a" stroke="#8b7dff" stroke-width="4"/>
-  <rect x="14" y="19" width="36" height="26" rx="4" fill="#f0e6dc"/>
-  <path d="M20 39 L20 25 L32 34 L44 25 L44 39" fill="none" stroke="#8b7dff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 512 512">
+  <!-- Maillet: petrol tile (tray style A, as Tasqlet), envelope whose flap forms an M, drawn as a line. -->
+  <rect x="32" y="32" width="448" height="448" rx="104" fill="#0f7f73"/>
+  <rect x="104" y="140" width="304" height="232" rx="48" fill="none" stroke="#f2fbf9" stroke-width="36"/>
+  <path d="M164 316V196l92 72 92-72v120" fill="none" stroke="#f2fbf9" stroke-width="38" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
