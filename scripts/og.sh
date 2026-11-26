@@ -6,7 +6,7 @@
 set -e
 cd "$(dirname "$0")/.."
 tmp=$(mktemp -d)
-for pair in trisq:trisq marq:marq jayq:jayq xaq:xaq hyqe:hyqe cusq:cusq dirq:dirq maiqe:maiqe maillet:maillet-home pockettray:pockettray codedeck:codedeck hatrack: pictorix:pictorix-order; do
+for pair in trisq:trisq marq:marq jayq:jayq xaq:xaq hyqe:hyqe cusq:cusq dirq:dirq maiqe:maiqe maillet:maillet-home tasqlet:tasqlet-home pockettray:pockettray codedeck:codedeck hatrack: pictorix:pictorix-order; do
   slug=${pair%%:*} shot=${pair##*:}
   if [ $# -gt 0 ]; then
     case " $* " in *" $slug "*) ;; *) continue ;; esac
