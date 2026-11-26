@@ -296,7 +296,7 @@ export const apps: App[] = [
       "Maillet is a free mail client for the Linux system tray: new mail at a glance, mails as tasks, one-time passwords ready to copy. IMAP, private, open source.",
     description:
       "Maillet is a mail client that lives in the system tray and organises mail around what you do with it. See what's new at a glance, turn a mail into a task and keep track of where it stands. One-time passwords appear the moment they arrive.",
-    accent: "#6d5ef5",
+    accent: "#0f7f73",
     category: "CommunicationApplication",
     labels: ["IMAP", "System tray"],
     highlights: [
@@ -305,15 +305,16 @@ export const apps: App[] = [
       "One-time passwords, ready to copy",
     ],
     features: [
-      { title: "One click away", text: "Maillet sits in the tray and opens as a compact window: all your mailboxes, the new mails first." },
+      { title: "One click away", text: "Maillet sits in the tray and opens as a popup at the icon or as a sidebar along the edge of the screen. Every mailbox has a tab of its own, the new mails come first." },
       { title: "People before noise", text: "Newsletters and automatic mails are set apart, so the mails written to you stand out." },
       { title: "Mails become tasks", text: "Make a mail a task and move it from open to in progress to done. The state lives in folders on your mail server, so nothing is locked in." },
-      { title: "Pin, file, archive", text: "Every mail gets its place with one click or one key. The aim is an empty inbox, not a full one." },
+      { title: "Pin, file, archive", text: "Every mail gets its place with one click or one key, and Ctrl+Z takes it back. The aim is an empty inbox, not a full one." },
       { title: "One-time passwords", text: "Login codes and magic links are recognised as they arrive and offered for copying – without opening the mail." },
       { title: "Private by default", text: "Maillet talks to your mail servers and nobody else. Passwords are kept in the system keyring." },
+      { title: "Your look", text: "The colour themes and styles of all be spex apps, light or dark with your desktop. In English and German." },
     ],
     shots: [
-      { file: "maillet-home", themed: true, width: 1400, height: 1400, title: "Maillet", alt: "Maillet's overview: a fresh login code, a pinned mail and the new mails as cards, grouped into people and noise" },
+      { file: "maillet-home", themed: true, width: 1400, height: 1400, title: "Maillet", alt: "Maillet's overview: a tab per mailbox, a pinned mail, a fresh login code and the new mails as cards, newsletters in a list below" },
       { file: "maillet-tasks", themed: true, width: 1400, height: 1400, title: "Maillet", alt: "Maillet's task board with mails as cards under Open, In progress and Done", caption: "Tasks: every mail you have to act on, with its state." },
     ],
     pkg: "maillet",

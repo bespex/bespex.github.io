@@ -16,7 +16,7 @@ const qiew = [
 // Other apps: [icon, accent, orange part, grey part(s), full title, kind]
 const others = [
   ["codedeck", "#6366f1", [["code", "o"], ["deck", ""]], "AI session radar for Linux", "CodeDeck · your co-deck for AI sessions"],
-  ["maillet", "#6d5ef5", [["mail", "o"], ["let", ""]], "Mail in your tray", "Maillet"],
+  ["maillet", "#0f7f73", [["mail", "o"], ["let", ""]], "Mail in your tray", "Maillet"],
   ["hatrack", "#2fa7e0", [["hat", "o"], ["rack", ""]], "Work context switcher", "HatRack"],
   ["pockettray", "#8fa3c4", [["pocket", "o"], ["tray", ""]], "Collapse your tray", "PocketTray"],
   ["pictorix", "#284f93", [["pict", "o"], ["orix", ""]], "Photo sorter", "Pictorix"],
